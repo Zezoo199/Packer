@@ -1,4 +1,4 @@
-##Packaging Challenge
+## Packaging Challenge
 A solution to packaging problem where maximum price is required withing weight range.
 
 ##Getting Started
