@@ -17,7 +17,7 @@ Reason for that is readability , correctness and simplicity.
 ## Design Patterns
 Singleton design pattern is used as In memory Packages repository.
 ###
-Spring context is used for DI except on the static method mentioned on constraint.
+Spring context is used for DI (for easier maintainibility) except on the static method mentioned pack.
 ## Data Structures
 IMPORTANT : all data strucures are List as we always either know the index or iterating over all items. 
 as well as the max size of items is 15! otherwise HashMaps and Queues could be used.
