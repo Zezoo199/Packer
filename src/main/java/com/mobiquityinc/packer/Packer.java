@@ -7,7 +7,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class Packer {
-  static Logger log = LoggerFactory.getLogger(Packer.class);
 
   public static String pack(String filePath) throws APIException {
     PackerService localService = new DefaultPackerService();
