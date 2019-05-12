@@ -18,7 +18,7 @@ public class Packer {
       ClassLoader classLoader = Packer.class.getClassLoader();
       System.out.println(pack(classLoader.getResource("sample.txt").getPath()));
     } catch (APIException e) {
-      log.error("Exception during packing {}", e.getLocalizedMessage());
+      log.error("Exception during packing {}", e.getMessage());
     }
   }
 }

@@ -23,3 +23,5 @@ TDD has been applied!
 Test coverage is 100% in used methods.
 ###
 Parent is Spring boot excluding web starters.
+###
+Sample files added to resources for main as well as test.

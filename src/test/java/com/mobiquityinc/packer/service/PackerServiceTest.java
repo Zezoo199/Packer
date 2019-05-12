@@ -7,8 +7,6 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import static org.junit.Assert.assertEquals;
-
 public class PackerServiceTest {
   private PackerService service = new DefaultPackerService();
   @Rule public ExpectedException expectedException = ExpectedException.none();
@@ -22,13 +20,14 @@ public class PackerServiceTest {
     // when
     String pack = service.pack(sampleFileFromResources.getPath());
 
-    //then
+    // then
     Assert.assertTrue(pack.equals("4\n" + "-\n" + "2,7\n" + "8,9"));
   }
+
   @Test
   public void givenAnotherFile_whenPack_thenCheckOutput() throws Exception {
     // Given another file from resources to check case of
-    //"You would prefer to send a package which weights less in case
+    // "You would prefer to send a package which weights less in case
     // there is more than one package with the same price."
     ClassLoader classLoader = getClass().getClassLoader();
     File sampleFileFromResources = new File(classLoader.getResource("sample-2.txt").getFile());
@@ -36,8 +35,8 @@ public class PackerServiceTest {
     // when
     String pack = service.pack(sampleFileFromResources.getPath());
 
-    //then check that index 3 is taken and not 2
-//    Assert.assertTrue(pack.equals("4,3"));
+    // then check that index 3 is taken and not 2
+    //    Assert.assertTrue(pack.equals("4,3"));
     Assert.assertTrue(pack.equals("4,3"));
   }
 

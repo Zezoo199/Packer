@@ -38,16 +38,14 @@ public class DefaultPackerService implements PackerService {
       loadFileIntoRepository(filePath);
       log.info("Processing file...");
       return processPakets(PackageRepository.findAll());
-    } catch (Exception e) {
-      throw new APIException("Unexpected Runtime exception " + e.getClass().getSimpleName());
-    }
-    finally {
+    } finally {
       PackageRepository.findAll().clear();
     }
   }
 
   /**
    * Method to validate file before processing
+   *
    * @param filePath
    * @throws APIException
    */
@@ -57,28 +55,38 @@ public class DefaultPackerService implements PackerService {
     } catch (Exception e) {
       log.info("Validation Failed with error {} {}", e.getClass().getSimpleName(), e.getMessage());
       throw new APIException(
-              "Pre Validation Failed For file  "
-                      + filePath
-                      + " Reason : "
-                      + e.getClass().getSimpleName()
-                      + " "
-                      + e.getMessage());
+          "Pre Validation Failed For file  "
+              + filePath
+              + " Reason : "
+              + e.getClass().getSimpleName()
+              + " "
+              + e.getMessage());
     }
   }
 
   /**
    * Method to file into static repository
+   *
    * @param filePath
    * @throws IOException
    */
-  private void loadFileIntoRepository(String filePath) throws IOException {
+  private void loadFileIntoRepository(String filePath) throws APIException {
     try (Stream<String> lines = Files.lines(Paths.get(filePath))) {
       lines.forEach(line -> PackageRepository.save(mapPaketFromLine(line)));
+    } catch (IOException e) {
+      throw new APIException(
+          "File Not found after validation!!  "
+              + filePath
+              + " Reason : "
+              + e.getClass().getSimpleName()
+              + " "
+              + e.getMessage());
     }
   }
 
   /**
    * Method to parase and map packet line
+   *
    * @param line
    * @return Paket mapped
    */
@@ -95,6 +103,7 @@ public class DefaultPackerService implements PackerService {
 
   /**
    * Method to process all packets from repository
+   *
    * @param pakets
    * @return
    */
@@ -103,8 +112,9 @@ public class DefaultPackerService implements PackerService {
   }
 
   /**
-   * Method to return the string output of a packet
-   * by first sorting the things and then applying Greedy Algorithm on sorted list
+   * Method to return the string output of a packet by first sorting the things and then applying
+   * Greedy Algorithm on sorted list
+   *
    * @param paket
    * @return output string for the packet delimetted by Comma
    */

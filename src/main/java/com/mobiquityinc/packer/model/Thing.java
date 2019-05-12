@@ -41,8 +41,7 @@ public class Thing implements Comparable<Thing> {
   }
 
   /**
-   * Comparing things by price desending and if price is same
-   * then by weight ascending
+   * Comparing things by price desending and if price is same then by weight ascending
    *
    * @param o
    * @return
