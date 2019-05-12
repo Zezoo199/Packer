@@ -12,6 +12,8 @@ mvn clean install
 3.All lines in the file are valid! There is a pre validate method to check all lines before processing.
 ## Algorithm/Strategy
 Greedy algorithm after sorting Things by Price DESC and Weight ASC.
+###
+Reason for that is readability , correctness and simplicity.
 ## Design Patterns
 Singleton design pattern is used as In memory Packages repository.
 ## Data Structures

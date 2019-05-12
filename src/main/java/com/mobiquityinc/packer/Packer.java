@@ -2,6 +2,7 @@ package com.mobiquityinc.packer;
 
 import com.mobiquityinc.packer.exception.APIException;
 import com.mobiquityinc.packer.service.DefaultPackerService;
+import com.mobiquityinc.packer.service.PackerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -9,7 +10,7 @@ public class Packer {
   static Logger log = LoggerFactory.getLogger(Packer.class);
 
   public static String pack(String filePath) throws APIException {
-    DefaultPackerService localService = new DefaultPackerService();
+    PackerService localService = new DefaultPackerService();
     return localService.pack(filePath);
   }
 

@@ -68,7 +68,7 @@ public class DefaultPackerService implements PackerService {
    * Method to file into static repository
    *
    * @param filePath
-   * @throws IOException
+   * @throws APIException
    */
   private void loadFileIntoRepository(String filePath) throws APIException {
     try (Stream<String> lines = Files.lines(Paths.get(filePath))) {
