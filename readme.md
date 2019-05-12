@@ -25,3 +25,5 @@ Test coverage is 100% in used methods.
 Parent is Spring boot excluding web starters.
 ###
 Sample files added to resources for main as well as test.
+###
+In Packer class there is a commented main method , you can un comment to run file from resources

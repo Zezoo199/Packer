@@ -9,7 +9,7 @@ public class PaketRepositoryTest {
   @Test
   public void givenEmptyRepository_whenSavePackage_thenSaved() {
     // given
-    Assert.assertTrue(PackageRepository.findAll().size() == 0);
+    Assert.assertTrue(PackageRepository.findAll().isEmpty());
 
     // when
     PackageRepository.save(new Paket());

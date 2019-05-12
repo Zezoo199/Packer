@@ -51,7 +51,7 @@ public class DefaultPackerService implements PackerService {
    */
   private void preValidateFile(String filePath) throws APIException {
     try (Stream<String> lines = Files.lines(Paths.get(filePath))) {
-      lines.forEach(line -> mapPaketFromLine(line));
+      lines.forEach(this::mapPaketFromLine);
     } catch (Exception e) {
       log.info("Validation Failed with error {} {}", e.getClass().getSimpleName(), e.getMessage());
       throw new APIException(

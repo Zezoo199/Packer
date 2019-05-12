@@ -12,7 +12,7 @@ public class PackerServiceTest {
   @Rule public ExpectedException expectedException = ExpectedException.none();
 
   @Test
-  public void givenSampleFile_whenPack_thenCheckOutput() throws Exception {
+  public void givenSampleFile_whenPack_thenCheckOutput() throws APIException {
     // Given file from resources
     ClassLoader classLoader = getClass().getClassLoader();
     File sampleFileFromResources = new File(classLoader.getResource("sample.txt").getFile());
@@ -25,7 +25,7 @@ public class PackerServiceTest {
   }
 
   @Test
-  public void givenAnotherFile_whenPack_thenCheckOutput() throws Exception {
+  public void givenAnotherFile_whenPack_thenCheckOutput() throws APIException {
     // Given another file from resources to check case of
     // "You would prefer to send a package which weights less in case
     // there is more than one package with the same price."
@@ -36,12 +36,11 @@ public class PackerServiceTest {
     String pack = service.pack(sampleFileFromResources.getPath());
 
     // then check that index 3 is taken and not 2
-    //    Assert.assertTrue(pack.equals("4,3"));
     Assert.assertTrue(pack.equals("4,3"));
   }
 
   @Test
-  public void givenBadFileData_whenPack_thenException() throws Exception {
+  public void givenBadFileData_whenPack_thenException() throws APIException {
     // Given file from resources
     ClassLoader classLoader = getClass().getClassLoader();
     File fileWithBadData = new File(classLoader.getResource("badformatfile.txt").getPath());
@@ -54,11 +53,11 @@ public class PackerServiceTest {
             + " Reason : NumberFormatException For input string: \"45A\"");
 
     // when
-    String pack = service.pack(fileWithBadData.getPath());
+    service.pack(fileWithBadData.getPath());
   }
 
   @Test
-  public void givenBadFilePath_whenPack_thenAPIException() throws Exception {
+  public void givenBadFilePath_whenPack_thenAPIException() throws APIException {
     // given
     String badFilePath = "XYZ";
 

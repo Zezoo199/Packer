@@ -14,11 +14,12 @@ public class Packer {
   }
 
   public static void main(String[] args) {
-    try {
+    // Un comment to run file from resources
+    /* try {
       ClassLoader classLoader = Packer.class.getClassLoader();
       System.out.println(pack(classLoader.getResource("sample.txt").getPath()));
     } catch (APIException e) {
       log.error("Exception during packing {}", e.getMessage());
-    }
+    }*/
   }
 }
