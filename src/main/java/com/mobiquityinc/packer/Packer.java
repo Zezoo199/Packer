@@ -3,8 +3,6 @@ package com.mobiquityinc.packer;
 import com.mobiquityinc.packer.exception.APIException;
 import com.mobiquityinc.packer.service.DefaultPackerService;
 import com.mobiquityinc.packer.service.PackerService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class Packer {
 
